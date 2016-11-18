@@ -1,0 +1,20 @@
+{
+  "name": "under-the-wire",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelpurra/under-the-wire.git"
+  },
+  "author": {
+    "name": "Joel Purra",
+    "url": "https://joelpurra.com/"
+  },
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/joelpurra/under-the-wire/issues"
+  },
+  "homepage": "https://github.com/joelpurra/under-the-wire#readme"
+}
