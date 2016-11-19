@@ -5,6 +5,160 @@
         "label": "Flow 1"
     },
     {
+        "id": "53c40fbb.11787",
+        "type": "subflow",
+        "name": "Add sentiment analysis score to message content",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 44,
+                "wires": [
+                    {
+                        "id": "43e1cebc.95dc2"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 509,
+                "y": 124,
+                "wires": [
+                    {
+                        "id": "19433ae9.f39375",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "6fc1ec46.1e81a4",
+        "type": "subflow",
+        "name": "Send to botanist slack",
+        "info": "",
+        "in": [
+            {
+                "x": 50,
+                "y": 68,
+                "wires": [
+                    {
+                        "id": "dc43e28e.3ed5"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "2a05ff51.b0049",
+        "type": "subflow",
+        "name": "Receive from botanist slack",
+        "info": "",
+        "in": [],
+        "out": [
+            {
+                "x": 258,
+                "y": 347,
+                "wires": [
+                    {
+                        "id": "c0780ff1.e91f6",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "3e816dab.6a0082",
+        "type": "subflow",
+        "name": "Check sentiment score",
+        "info": "",
+        "in": [
+            {
+                "x": 63,
+                "y": 203,
+                "wires": [
+                    {
+                        "id": "bb22e5c5.d077d8"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 485,
+                "y": 138,
+                "wires": [
+                    {
+                        "id": "bb22e5c5.d077d8",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 482,
+                "y": 191,
+                "wires": [
+                    {
+                        "id": "bb22e5c5.d077d8",
+                        "port": 1
+                    }
+                ]
+            },
+            {
+                "x": 486,
+                "y": 241,
+                "wires": [
+                    {
+                        "id": "bb22e5c5.d077d8",
+                        "port": 2
+                    }
+                ]
+            },
+            {
+                "x": 483,
+                "y": 296,
+                "wires": [
+                    {
+                        "id": "bb22e5c5.d077d8",
+                        "port": 3
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "8ad0d4e9.a7ddc8",
+        "type": "subflow",
+        "name": "Extract session id from message",
+        "info": "",
+        "in": [
+            {
+                "x": -66.5,
+                "y": 922,
+                "wires": [
+                    {
+                        "id": "9c44fd9a.e22d3"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 245,
+                "y": 1176,
+                "wires": [
+                    {
+                        "id": "837e26da.2a84a8",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": "d1b9de09.ece51",
         "type": "chatbot-slack-node",
         "z": "",
@@ -23,10 +177,10 @@
     {
         "id": "67461a8d.8f5d64",
         "type": "chatbot-slack-receive",
-        "z": "839831c9.0e16f",
+        "z": "2a05ff51.b0049",
         "bot": "d1b9de09.ece51",
-        "x": 103,
-        "y": 461,
+        "x": 106,
+        "y": 50,
         "wires": [
             [
                 "c0780ff1.e91f6"
@@ -36,10 +190,10 @@
     {
         "id": "7c815f24.718b",
         "type": "chatbot-slack-send",
-        "z": "839831c9.0e16f",
+        "z": "6fc1ec46.1e81a4",
         "bot": "d1b9de09.ece51",
-        "x": 1002,
-        "y": 1459,
+        "x": 398,
+        "y": 32,
         "wires": [
             []
         ]
@@ -58,19 +212,27 @@
                 "vt": "str"
             },
             {
+                "t": "eq",
+                "v": "help",
+                "vt": "str"
+            },
+            {
                 "t": "else"
             }
         ],
         "checkall": "false",
-        "outputs": 2,
-        "x": 441,
-        "y": 835,
+        "outputs": 3,
+        "x": 396,
+        "y": 734,
         "wires": [
             [
                 "57943558.e5b10c"
             ],
             [
-                "43e1cebc.95dc2"
+                "a1a74818.4465e8"
+            ],
+            [
+                "8c4caa59.ac2c88"
             ]
         ]
     },
@@ -83,26 +245,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 676.5,
-        "y": 846,
-        "wires": [
-            [
-                "627b6da7.b99df4"
-            ]
-        ]
-    },
-    {
-        "id": "cdca7034.c162e",
-        "type": "template",
-        "z": "839831c9.0e16f",
-        "name": "Payload debugger message",
-        "field": "payload.content",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "DEBUG: {{payload.content}}",
-        "x": 737.5,
-        "y": 976,
+        "x": 814.5,
+        "y": 631,
         "wires": [
             [
                 "627b6da7.b99df4"
@@ -112,25 +256,25 @@
     {
         "id": "6473ca63.c560f4",
         "type": "debug",
-        "z": "839831c9.0e16f",
+        "z": "2a05ff51.b0049",
         "name": "Receiver debug",
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 304.5,
-        "y": 614,
+        "x": 309.5,
+        "y": 175,
         "wires": []
     },
     {
         "id": "a75ff5a2.eb8d78",
         "type": "debug",
-        "z": "839831c9.0e16f",
+        "z": "6fc1ec46.1e81a4",
         "name": "Sender debug",
         "active": true,
         "console": "false",
         "complete": "true",
-        "x": 1012.5,
-        "y": 1525,
+        "x": 408.5,
+        "y": 98,
         "wires": []
     },
     {
@@ -142,7 +286,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 693.5,
-        "y": 1270,
+        "y": 1192,
         "wires": [
             [
                 "627b6da7.b99df4"
@@ -164,8 +308,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 653.5,
-        "y": 757,
+        "x": 601.5,
+        "y": 637,
         "wires": [
             [
                 "df088ac5.835f88"
@@ -178,7 +322,7 @@
         "z": "839831c9.0e16f",
         "waitingType": "typing",
         "x": 593.5,
-        "y": 634,
+        "y": 601,
         "wires": [
             [
                 "627b6da7.b99df4"
@@ -188,7 +332,7 @@
     {
         "id": "b35be900.4b04b8",
         "type": "mongodb out",
-        "z": "839831c9.0e16f",
+        "z": "2a05ff51.b0049",
         "mongodb": "170ded6c.6bad73",
         "name": "",
         "collection": "incoming-slack",
@@ -196,14 +340,14 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 378.5,
-        "y": 543,
+        "x": 382.5,
+        "y": 114,
         "wires": []
     },
     {
         "id": "f97a881b.ea56e8",
         "type": "mongodb out",
-        "z": "839831c9.0e16f",
+        "z": "6fc1ec46.1e81a4",
         "mongodb": "170ded6c.6bad73",
         "name": "",
         "collection": "outgoing-slack",
@@ -211,8 +355,8 @@
         "upsert": false,
         "multi": false,
         "operation": "store",
-        "x": 990,
-        "y": 1579,
+        "x": 386,
+        "y": 152,
         "wires": []
     },
     {
@@ -229,18 +373,18 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 1015.5,
+        "x": 1108.5,
         "y": 1008,
         "wires": [
             [
-                "dc43e28e.3ed5"
+                "6308aff8.006f9"
             ]
         ]
     },
     {
         "id": "c0780ff1.e91f6",
         "type": "switch",
-        "z": "839831c9.0e16f",
+        "z": "2a05ff51.b0049",
         "name": "no-op",
         "property": "payload",
         "propertyType": "msg",
@@ -251,13 +395,12 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 126,
-        "y": 614,
+        "x": 131,
+        "y": 175,
         "wires": [
             [
                 "b35be900.4b04b8",
-                "6473ca63.c560f4",
-                "b0f29052.741a4"
+                "6473ca63.c560f4"
             ]
         ]
     },
@@ -284,8 +427,8 @@
         ],
         "checkall": "true",
         "outputs": 2,
-        "x": 98.5,
-        "y": 933,
+        "x": 142,
+        "y": 650,
         "wires": [
             [
                 "110fa7df.137d08"
@@ -303,18 +446,18 @@
         "func": "msg.payload.content = 'You told the channel: ' + msg.payload.content;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 227,
-        "y": 1530,
+        "x": 150,
+        "y": 1524,
         "wires": [
             [
-                "dc43e28e.3ed5"
+                "baaa9756.5dc538"
             ]
         ]
     },
     {
         "id": "dc43e28e.3ed5",
         "type": "switch",
-        "z": "839831c9.0e16f",
+        "z": "6fc1ec46.1e81a4",
         "name": "no-op",
         "property": "payload",
         "propertyType": "msg",
@@ -325,8 +468,8 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 784,
-        "y": 1495,
+        "x": 180,
+        "y": 68,
         "wires": [
             [
                 "7c815f24.718b",
@@ -338,10 +481,10 @@
     {
         "id": "be03de71.20fba",
         "type": "sentiment",
-        "z": "839831c9.0e16f",
+        "z": "53c40fbb.11787",
         "name": "",
-        "x": 346.5,
-        "y": 965,
+        "x": 202.5,
+        "y": 82,
         "wires": [
             [
                 "19433ae9.f39375"
@@ -351,13 +494,13 @@
     {
         "id": "43e1cebc.95dc2",
         "type": "function",
-        "z": "839831c9.0e16f",
+        "z": "53c40fbb.11787",
         "name": "Modify payload for sentiment analysis",
         "func": "msg.originalPayload = msg.payload;\n\nmsg.payload = msg.payload.content;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 424,
-        "y": 927,
+        "x": 280,
+        "y": 44,
         "wires": [
             [
                 "be03de71.20fba"
@@ -367,58 +510,53 @@
     {
         "id": "19433ae9.f39375",
         "type": "function",
-        "z": "839831c9.0e16f",
+        "z": "53c40fbb.11787",
         "name": "Modify payload for sentiment analysis",
         "func": "msg.payload = msg.originalPayload;\n\ndelete msg.originalPayload;\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 423,
-        "y": 1007,
+        "x": 279,
+        "y": 124,
         "wires": [
-            [
-                "53ef11ba.fdb5f",
-                "72169959.159138"
-            ]
+            []
         ]
     },
     {
         "id": "bb22e5c5.d077d8",
         "type": "switch",
-        "z": "839831c9.0e16f",
+        "z": "3e816dab.6a0082",
         "name": "Check sentiment score",
         "property": "sentiment.score",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "lt",
+                "t": "gt",
                 "v": "0",
-                "vt": "str"
+                "vt": "num"
             },
             {
                 "t": "eq",
                 "v": "0",
-                "vt": "str"
+                "vt": "num"
             },
             {
-                "t": "gt",
-                "v": "",
-                "vt": "str"
+                "t": "lt",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
             }
         ],
         "checkall": "true",
-        "outputs": 3,
-        "x": 418.5,
-        "y": 1250,
+        "outputs": 4,
+        "x": 259.5,
+        "y": 216,
         "wires": [
-            [
-                "9cedadf4.99164"
-            ],
-            [
-                "ee87fccb.fcb2f"
-            ],
-            [
-                "ee87fccb.fcb2f"
-            ]
+            [],
+            [],
+            [],
+            []
         ]
     },
     {
@@ -426,12 +564,12 @@
         "type": "chatbot-message",
         "z": "839831c9.0e16f",
         "name": "Bad sentiment",
-        "message": "Oh my, I had to block that message! Please try to be more polite.",
+        "message": "Hmm, this message sounds like you might be upset. I suggest rephrasing and trying again.",
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 709.5,
-        "y": 1178,
+        "x": 675.5,
+        "y": 1262,
         "wires": [
             [
                 "627b6da7.b99df4"
@@ -442,39 +580,16 @@
         "id": "53ef11ba.fdb5f",
         "type": "chatbot-message",
         "z": "839831c9.0e16f",
-        "name": "Sentiment debug output",
+        "name": "Debug sentiment score",
         "message": "Sentiment score: {{sentiment.score}}",
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 455.5,
-        "y": 1135,
+        "x": 725.5,
+        "y": 1097,
         "wires": [
             [
                 "627b6da7.b99df4"
-            ]
-        ]
-    },
-    {
-        "id": "72169959.159138",
-        "type": "delay",
-        "z": "839831c9.0e16f",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "0.1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 288.5,
-        "y": 1203,
-        "wires": [
-            [
-                "bb22e5c5.d077d8"
             ]
         ]
     },
@@ -492,12 +607,379 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 287,
-        "y": 755,
+        "x": 327,
+        "y": 630,
         "wires": [
             [
                 "b942b4b4.8a7988",
                 "3310dab8.ea1be6"
+            ]
+        ]
+    },
+    {
+        "id": "75d09a3e.8dded4",
+        "type": "subflow:53c40fbb.11787",
+        "z": "839831c9.0e16f",
+        "x": 385.25,
+        "y": 1046,
+        "wires": [
+            [
+                "44d97ddb.52eb24",
+                "53ef11ba.fdb5f"
+            ]
+        ]
+    },
+    {
+        "id": "6308aff8.006f9",
+        "type": "subflow:6fc1ec46.1e81a4",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "x": 898.25,
+        "y": 1519,
+        "wires": []
+    },
+    {
+        "id": "c34f0167.1403a",
+        "type": "subflow:2a05ff51.b0049",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "x": 125,
+        "y": 558.5,
+        "wires": [
+            [
+                "b0f29052.741a4"
+            ]
+        ]
+    },
+    {
+        "id": "44d97ddb.52eb24",
+        "type": "subflow:3e816dab.6a0082",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "x": 378.5,
+        "y": 1234,
+        "wires": [
+            [
+                "ee87fccb.fcb2f"
+            ],
+            [
+                "ee87fccb.fcb2f"
+            ],
+            [
+                "9cedadf4.99164"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "8c4caa59.ac2c88",
+        "type": "chatbot-listen",
+        "z": "839831c9.0e16f",
+        "name": "start session",
+        "sentences": [
+            "start,session"
+        ],
+        "x": 339.5,
+        "y": 810,
+        "wires": [
+            [
+                "defc6f37.ecfd7"
+            ],
+            [
+                "f1a934ca.884618"
+            ]
+        ]
+    },
+    {
+        "id": "f1a934ca.884618",
+        "type": "chatbot-listen",
+        "z": "839831c9.0e16f",
+        "name": "join session",
+        "sentences": [
+            "join,session"
+        ],
+        "x": 338,
+        "y": 859,
+        "wires": [
+            [
+                "85c5e1e0.c5844"
+            ],
+            [
+                "75d09a3e.8dded4"
+            ]
+        ]
+    },
+    {
+        "id": "f75ac520.cc6348",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "Starting session",
+        "message": "Starting a session with the id {{sessionId}}",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 856,
+        "y": 807,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "e1d853b0.1099e",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "Joining session",
+        "message": "Joining a session with the id {{sessionId}}",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 854,
+        "y": 857,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "baaa9756.5dc538",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "disabled",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [],
+        "checkall": "true",
+        "outputs": 0,
+        "x": 405,
+        "y": 1522,
+        "wires": []
+    },
+    {
+        "id": "a1a74818.4465e8",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "help",
+        "message": "I know these things, more or less:\n1. help\n2. ping\n3. start session <id>\n4. join session <id>",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 608,
+        "y": 672,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "c4a4faff.4bcd18",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "Debug session id",
+        "message": "Session ID: {{sessionId}}",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 875.5,
+        "y": 986,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "692cec24.8f25b4",
+        "type": "split",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "splt": " ",
+        "x": 79.5,
+        "y": 1013,
+        "wires": [
+            [
+                "eebf8e4d.b8c16"
+            ]
+        ]
+    },
+    {
+        "id": "5bc864ec.d0bfcc",
+        "type": "change",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 86,
+        "y": 974,
+        "wires": [
+            [
+                "692cec24.8f25b4"
+            ]
+        ]
+    },
+    {
+        "id": "9c44fd9a.e22d3",
+        "type": "change",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payloadOriginal",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 123.5,
+        "y": 922,
+        "wires": [
+            [
+                "5bc864ec.d0bfcc"
+            ]
+        ]
+    },
+    {
+        "id": "837e26da.2a84a8",
+        "type": "change",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payloadOriginal",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 85,
+        "y": 1176,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eebf8e4d.b8c16",
+        "type": "switch",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "property": "parts.index",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 1,
+        "x": 65.5,
+        "y": 1048,
+        "wires": [
+            [
+                "2c198b1d.9355a4"
+            ]
+        ]
+    },
+    {
+        "id": "2c198b1d.9355a4",
+        "type": "change",
+        "z": "8ad0d4e9.a7ddc8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sessionId",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 61.5,
+        "y": 1084,
+        "wires": [
+            [
+                "837e26da.2a84a8"
+            ]
+        ]
+    },
+    {
+        "id": "defc6f37.ecfd7",
+        "type": "subflow:8ad0d4e9.a7ddc8",
+        "z": "839831c9.0e16f",
+        "x": 605.5,
+        "y": 813,
+        "wires": [
+            [
+                "f75ac520.cc6348",
+                "6db38031.b19e9"
+            ]
+        ]
+    },
+    {
+        "id": "85c5e1e0.c5844",
+        "type": "subflow:8ad0d4e9.a7ddc8",
+        "z": "839831c9.0e16f",
+        "x": 586,
+        "y": 858,
+        "wires": [
+            [
+                "e1d853b0.1099e",
+                "6db38031.b19e9"
+            ]
+        ]
+    },
+    {
+        "id": "6db38031.b19e9",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 833,
+        "y": 931,
+        "wires": [
+            [
+                "c4a4faff.4bcd18"
             ]
         ]
     }
