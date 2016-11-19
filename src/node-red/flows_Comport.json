@@ -1,1 +1,504 @@
-[{"id":"839831c9.0e16f","type":"tab","label":"Flow 1"},{"id":"d1b9de09.ece51","type":"chatbot-slack-node","z":"","botname":"botanist","usernames":""},{"id":"170ded6c.6bad73","type":"mongodb","z":"","hostname":"127.0.0.1","port":"27017","db":"under-the-wire","name":"localhost under-the-wire"},{"id":"67461a8d.8f5d64","type":"chatbot-slack-receive","z":"839831c9.0e16f","bot":"d1b9de09.ece51","x":109,"y":462,"wires":[["c0780ff1.e91f6"]]},{"id":"7c815f24.718b","type":"chatbot-slack-send","z":"839831c9.0e16f","bot":"d1b9de09.ece51","x":1002,"y":1459,"wires":[[]]},{"id":"3310dab8.ea1be6","type":"switch","z":"839831c9.0e16f","name":"Payload switch","property":"payload.content","propertyType":"msg","rules":[{"t":"eq","v":"ping","vt":"str"},{"t":"else"}],"checkall":"false","outputs":2,"x":441,"y":835,"wires":[["57943558.e5b10c"],["43e1cebc.95dc2"]]},{"id":"df088ac5.835f88","type":"chatbot-message","z":"839831c9.0e16f","name":"pong","message":"pong","answer":false,"track":false,"parse_mode":"","x":676.5,"y":846,"wires":[["627b6da7.b99df4"]]},{"id":"cdca7034.c162e","type":"template","z":"839831c9.0e16f","name":"Payload debugger message","field":"payload.content","fieldType":"msg","format":"handlebars","syntax":"mustache","template":"DEBUG: {{payload.content}}","x":737.5,"y":976,"wires":[["627b6da7.b99df4"]]},{"id":"6473ca63.c560f4","type":"debug","z":"839831c9.0e16f","name":"Receiver debug","active":true,"console":"false","complete":"true","x":304.5,"y":614,"wires":[]},{"id":"a75ff5a2.eb8d78","type":"debug","z":"839831c9.0e16f","name":"Sender debug","active":true,"console":"false","complete":"true","x":1012.5,"y":1525,"wires":[]},{"id":"ee87fccb.fcb2f","type":"function","z":"839831c9.0e16f","name":"Function setting payload","func":"msg.payload.content = 'You said in private: ' + msg.payload.content;\nreturn msg;","outputs":1,"noerr":0,"x":693.5,"y":1270,"wires":[["627b6da7.b99df4"]]},{"id":"57943558.e5b10c","type":"delay","z":"839831c9.0e16f","name":"","pauseType":"delay","timeout":"2","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":653.5,"y":757,"wires":[["df088ac5.835f88"]]},{"id":"b942b4b4.8a7988","type":"chatbot-waiting","z":"839831c9.0e16f","waitingType":"typing","x":593.5,"y":634,"wires":[["627b6da7.b99df4"]]},{"id":"b35be900.4b04b8","type":"mongodb out","z":"839831c9.0e16f","mongodb":"170ded6c.6bad73","name":"","collection":"incoming-slack","payonly":false,"upsert":false,"multi":false,"operation":"store","x":378.5,"y":543,"wires":[]},{"id":"f97a881b.ea56e8","type":"mongodb out","z":"839831c9.0e16f","mongodb":"170ded6c.6bad73","name":"","collection":"outgoing-slack","payonly":false,"upsert":false,"multi":false,"operation":"store","x":990,"y":1579,"wires":[]},{"id":"627b6da7.b99df4","type":"switch","z":"839831c9.0e16f","name":"no-op","property":"payload","propertyType":"msg","rules":[{"t":"else"}],"checkall":"true","outputs":1,"x":1015.5,"y":1008,"wires":[["dc43e28e.3ed5"]]},{"id":"c0780ff1.e91f6","type":"switch","z":"839831c9.0e16f","name":"no-op","property":"payload","propertyType":"msg","rules":[{"t":"else"}],"checkall":"true","outputs":1,"x":126,"y":614,"wires":[["b35be900.4b04b8","6473ca63.c560f4","b0f29052.741a4"]]},{"id":"b0f29052.741a4","type":"switch","z":"839831c9.0e16f","name":"Message type split","property":"payload.chatId","propertyType":"msg","rules":[{"t":"regex","v":"^D","vt":"str","case":false},{"t":"regex","v":"^C","vt":"str","case":false}],"checkall":"true","outputs":2,"x":98.5,"y":933,"wires":[["110fa7df.137d08"],["61532ed4.b8873"]]},{"id":"61532ed4.b8873","type":"function","z":"839831c9.0e16f","name":"Function setting payload","func":"msg.payload.content = 'You told the channel: ' + msg.payload.content;\nreturn msg;","outputs":1,"noerr":0,"x":227,"y":1530,"wires":[["dc43e28e.3ed5"]]},{"id":"dc43e28e.3ed5","type":"switch","z":"839831c9.0e16f","name":"no-op","property":"payload","propertyType":"msg","rules":[{"t":"else"}],"checkall":"true","outputs":1,"x":784,"y":1495,"wires":[["7c815f24.718b","a75ff5a2.eb8d78","f97a881b.ea56e8"]]},{"id":"be03de71.20fba","type":"sentiment","z":"839831c9.0e16f","name":"","x":346.5,"y":965,"wires":[["19433ae9.f39375"]]},{"id":"43e1cebc.95dc2","type":"function","z":"839831c9.0e16f","name":"Modify payload for sentiment analysis","func":"msg.originalPayload = msg.payload;\n\nmsg.payload = msg.payload.content;\n\nreturn msg;","outputs":1,"noerr":0,"x":424,"y":927,"wires":[["be03de71.20fba"]]},{"id":"19433ae9.f39375","type":"function","z":"839831c9.0e16f","name":"Modify payload for sentiment analysis","func":"msg.payload = msg.originalPayload;\n\ndelete msg.originalPayload;\n\nreturn msg;","outputs":1,"noerr":0,"x":423,"y":1007,"wires":[["53ef11ba.fdb5f","72169959.159138"]]},{"id":"bb22e5c5.d077d8","type":"switch","z":"839831c9.0e16f","name":"Check sentiment score","property":"sentiment.score","propertyType":"msg","rules":[{"t":"lt","v":"0","vt":"str"},{"t":"eq","v":"0","vt":"str"},{"t":"gt","v":"","vt":"str"}],"checkall":"true","outputs":3,"x":418.5,"y":1250,"wires":[["9cedadf4.99164"],["ee87fccb.fcb2f"],["ee87fccb.fcb2f"]]},{"id":"9cedadf4.99164","type":"chatbot-message","z":"839831c9.0e16f","name":"Bad sentiment","message":"Oh my, I had to block that message! Please try to be more polite.","answer":false,"track":false,"parse_mode":"","x":709.5,"y":1178,"wires":[["627b6da7.b99df4"]]},{"id":"53ef11ba.fdb5f","type":"chatbot-message","z":"839831c9.0e16f","name":"Sentiment debug output","message":"Sentiment score: {{sentiment.score}}","answer":false,"track":false,"parse_mode":"","x":455.5,"y":1135,"wires":[["627b6da7.b99df4"]]},{"id":"72169959.159138","type":"delay","z":"839831c9.0e16f","name":"","pauseType":"delay","timeout":"0.1","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":288.5,"y":1203,"wires":[["bb22e5c5.d077d8"]]},{"id":"110fa7df.137d08","type":"switch","z":"839831c9.0e16f","name":"no-op","property":"payload","propertyType":"msg","rules":[{"t":"else"}],"checkall":"true","outputs":1,"x":287,"y":755,"wires":[["b942b4b4.8a7988","3310dab8.ea1be6"]]}]
+[
+    {
+        "id": "839831c9.0e16f",
+        "type": "tab",
+        "label": "Flow 1"
+    },
+    {
+        "id": "d1b9de09.ece51",
+        "type": "chatbot-slack-node",
+        "z": "",
+        "botname": "botanist",
+        "usernames": ""
+    },
+    {
+        "id": "170ded6c.6bad73",
+        "type": "mongodb",
+        "z": "",
+        "hostname": "127.0.0.1",
+        "port": "27017",
+        "db": "under-the-wire",
+        "name": "localhost under-the-wire"
+    },
+    {
+        "id": "67461a8d.8f5d64",
+        "type": "chatbot-slack-receive",
+        "z": "839831c9.0e16f",
+        "bot": "d1b9de09.ece51",
+        "x": 103,
+        "y": 461,
+        "wires": [
+            [
+                "c0780ff1.e91f6"
+            ]
+        ]
+    },
+    {
+        "id": "7c815f24.718b",
+        "type": "chatbot-slack-send",
+        "z": "839831c9.0e16f",
+        "bot": "d1b9de09.ece51",
+        "x": 1002,
+        "y": 1459,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3310dab8.ea1be6",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "Payload switch",
+        "property": "payload.content",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ping",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 441,
+        "y": 835,
+        "wires": [
+            [
+                "57943558.e5b10c"
+            ],
+            [
+                "43e1cebc.95dc2"
+            ]
+        ]
+    },
+    {
+        "id": "df088ac5.835f88",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "pong",
+        "message": "pong",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 676.5,
+        "y": 846,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "cdca7034.c162e",
+        "type": "template",
+        "z": "839831c9.0e16f",
+        "name": "Payload debugger message",
+        "field": "payload.content",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "DEBUG: {{payload.content}}",
+        "x": 737.5,
+        "y": 976,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "6473ca63.c560f4",
+        "type": "debug",
+        "z": "839831c9.0e16f",
+        "name": "Receiver debug",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 304.5,
+        "y": 614,
+        "wires": []
+    },
+    {
+        "id": "a75ff5a2.eb8d78",
+        "type": "debug",
+        "z": "839831c9.0e16f",
+        "name": "Sender debug",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 1012.5,
+        "y": 1525,
+        "wires": []
+    },
+    {
+        "id": "ee87fccb.fcb2f",
+        "type": "function",
+        "z": "839831c9.0e16f",
+        "name": "Function setting payload",
+        "func": "msg.payload.content = 'You said in private: ' + msg.payload.content;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 693.5,
+        "y": 1270,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "57943558.e5b10c",
+        "type": "delay",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 653.5,
+        "y": 757,
+        "wires": [
+            [
+                "df088ac5.835f88"
+            ]
+        ]
+    },
+    {
+        "id": "b942b4b4.8a7988",
+        "type": "chatbot-waiting",
+        "z": "839831c9.0e16f",
+        "waitingType": "typing",
+        "x": 593.5,
+        "y": 634,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "b35be900.4b04b8",
+        "type": "mongodb out",
+        "z": "839831c9.0e16f",
+        "mongodb": "170ded6c.6bad73",
+        "name": "",
+        "collection": "incoming-slack",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 378.5,
+        "y": 543,
+        "wires": []
+    },
+    {
+        "id": "f97a881b.ea56e8",
+        "type": "mongodb out",
+        "z": "839831c9.0e16f",
+        "mongodb": "170ded6c.6bad73",
+        "name": "",
+        "collection": "outgoing-slack",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 990,
+        "y": 1579,
+        "wires": []
+    },
+    {
+        "id": "627b6da7.b99df4",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 1015.5,
+        "y": 1008,
+        "wires": [
+            [
+                "dc43e28e.3ed5"
+            ]
+        ]
+    },
+    {
+        "id": "c0780ff1.e91f6",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 126,
+        "y": 614,
+        "wires": [
+            [
+                "b35be900.4b04b8",
+                "6473ca63.c560f4",
+                "b0f29052.741a4"
+            ]
+        ]
+    },
+    {
+        "id": "b0f29052.741a4",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "Message type split",
+        "property": "payload.chatId",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^D",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^C",
+                "vt": "str",
+                "case": false
+            }
+        ],
+        "checkall": "true",
+        "outputs": 2,
+        "x": 98.5,
+        "y": 933,
+        "wires": [
+            [
+                "110fa7df.137d08"
+            ],
+            [
+                "61532ed4.b8873"
+            ]
+        ]
+    },
+    {
+        "id": "61532ed4.b8873",
+        "type": "function",
+        "z": "839831c9.0e16f",
+        "name": "Function setting payload",
+        "func": "msg.payload.content = 'You told the channel: ' + msg.payload.content;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 227,
+        "y": 1530,
+        "wires": [
+            [
+                "dc43e28e.3ed5"
+            ]
+        ]
+    },
+    {
+        "id": "dc43e28e.3ed5",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 784,
+        "y": 1495,
+        "wires": [
+            [
+                "7c815f24.718b",
+                "a75ff5a2.eb8d78",
+                "f97a881b.ea56e8"
+            ]
+        ]
+    },
+    {
+        "id": "be03de71.20fba",
+        "type": "sentiment",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "x": 346.5,
+        "y": 965,
+        "wires": [
+            [
+                "19433ae9.f39375"
+            ]
+        ]
+    },
+    {
+        "id": "43e1cebc.95dc2",
+        "type": "function",
+        "z": "839831c9.0e16f",
+        "name": "Modify payload for sentiment analysis",
+        "func": "msg.originalPayload = msg.payload;\n\nmsg.payload = msg.payload.content;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 424,
+        "y": 927,
+        "wires": [
+            [
+                "be03de71.20fba"
+            ]
+        ]
+    },
+    {
+        "id": "19433ae9.f39375",
+        "type": "function",
+        "z": "839831c9.0e16f",
+        "name": "Modify payload for sentiment analysis",
+        "func": "msg.payload = msg.originalPayload;\n\ndelete msg.originalPayload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 423,
+        "y": 1007,
+        "wires": [
+            [
+                "53ef11ba.fdb5f",
+                "72169959.159138"
+            ]
+        ]
+    },
+    {
+        "id": "bb22e5c5.d077d8",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "Check sentiment score",
+        "property": "sentiment.score",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 3,
+        "x": 418.5,
+        "y": 1250,
+        "wires": [
+            [
+                "9cedadf4.99164"
+            ],
+            [
+                "ee87fccb.fcb2f"
+            ],
+            [
+                "ee87fccb.fcb2f"
+            ]
+        ]
+    },
+    {
+        "id": "9cedadf4.99164",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "Bad sentiment",
+        "message": "Oh my, I had to block that message! Please try to be more polite.",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 709.5,
+        "y": 1178,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "53ef11ba.fdb5f",
+        "type": "chatbot-message",
+        "z": "839831c9.0e16f",
+        "name": "Sentiment debug output",
+        "message": "Sentiment score: {{sentiment.score}}",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 455.5,
+        "y": 1135,
+        "wires": [
+            [
+                "627b6da7.b99df4"
+            ]
+        ]
+    },
+    {
+        "id": "72169959.159138",
+        "type": "delay",
+        "z": "839831c9.0e16f",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 288.5,
+        "y": 1203,
+        "wires": [
+            [
+                "bb22e5c5.d077d8"
+            ]
+        ]
+    },
+    {
+        "id": "110fa7df.137d08",
+        "type": "switch",
+        "z": "839831c9.0e16f",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 287,
+        "y": 755,
+        "wires": [
+            [
+                "b942b4b4.8a7988",
+                "3310dab8.ea1be6"
+            ]
+        ]
+    }
+]
