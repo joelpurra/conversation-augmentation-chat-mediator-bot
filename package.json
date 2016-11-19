@@ -2,6 +2,7 @@
   "name": "under-the-wire",
   "version": "0.0.0",
   "scripts": {
+    "start": "node-red --userDir ./src/node-red",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/joelpurra/under-the-wire/issues"
   },
-  "homepage": "https://github.com/joelpurra/under-the-wire#readme"
+  "homepage": "https://github.com/joelpurra/under-the-wire#readme",
+  "dependencies": {
+    "node-red": "^0.15.2",
+    "node-red-contrib-chatbot": "^0.6.6",
+    "node-red-node-mongodb": "0.0.11"
+  }
 }
