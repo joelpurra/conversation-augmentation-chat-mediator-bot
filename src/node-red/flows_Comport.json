@@ -965,7 +965,7 @@
         "type": "chatbot-message",
         "z": "214d5703.b6e2a8",
         "name": "help",
-        "message": "I know these things, more or less:\n1. help\n2. ping\n3. start session <id>\n4. join session <id>",
+        "message": "I know these things, more or less:\n1. help\n2. ping\n3. start session <id>\n4. join session <id>\n5. leave session",
         "answer": false,
         "track": false,
         "parse_mode": "",
