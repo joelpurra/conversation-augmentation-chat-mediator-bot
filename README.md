@@ -45,6 +45,11 @@ open http://127.0.0.1:1880/
 # Chat with your bot through slack!
 ```
 
+## Development
+
+All bot development was made using the visual editor in [node-red](https://nodered.org/) using nodes from the [node-red-contrib-chatbot](https://github.com/guidone/node-red-contrib-chatbot) plugin/addon. running locally. Here's an example of "visual code" in the main flow:
+
+[![screen shot 2016-11-20 at 15 24 22](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)
 
 
 ## Story
