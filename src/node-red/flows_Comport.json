@@ -264,8 +264,8 @@
         ],
         "out": [
             {
-                "x": 1051.5,
-                "y": 697,
+                "x": 1042.5,
+                "y": 966,
                 "wires": [
                     {
                         "id": "689d85f9.fbda4c",
@@ -570,8 +570,8 @@
         "func": "msg.payload.content = 'You said in private: ' + msg.payload.content;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 660.5,
-        "y": 672,
+        "x": 651.5,
+        "y": 941,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -812,17 +812,17 @@
         "rules": [
             {
                 "t": "gt",
-                "v": "0",
+                "v": "-3",
                 "vt": "num"
             },
             {
                 "t": "eq",
-                "v": "0",
+                "v": "-3",
                 "vt": "num"
             },
             {
                 "t": "lt",
-                "v": "0",
+                "v": "-3",
                 "vt": "num"
             },
             {
@@ -849,8 +849,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 616.5,
-        "y": 924,
+        "x": 607.5,
+        "y": 1193,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -866,8 +866,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 664.5,
-        "y": 598,
+        "x": 611.5,
+        "y": 663,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -901,12 +901,12 @@
         "id": "75d09a3e.8dded4",
         "type": "subflow:53c40fbb.11787",
         "z": "94383a31.f15548",
-        "x": 260.25,
-        "y": 613,
+        "x": 215.25,
+        "y": 883,
         "wires": [
             [
                 "44d97ddb.52eb24",
-                "53ef11ba.fdb5f"
+                "336f24f0.7c500c"
             ]
         ]
     },
@@ -937,8 +937,8 @@
         "type": "subflow:3e816dab.6a0082",
         "z": "94383a31.f15548",
         "name": "",
-        "x": 215.5,
-        "y": 728,
+        "x": 146.5,
+        "y": 990,
         "wires": [
             [
                 "4c022e9d.12551",
@@ -1346,8 +1346,8 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 891,
-        "y": 691,
+        "x": 882,
+        "y": 960,
         "wires": [
             []
         ]
@@ -1939,9 +1939,7 @@
         "x": 702.5,
         "y": 142,
         "wires": [
-            [
-                "b307081.d1aa8f8"
-            ]
+            []
         ]
     },
     {
@@ -2097,8 +2095,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 643,
-        "y": 455,
+        "x": 599,
+        "y": 521,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -2109,8 +2107,8 @@
         "id": "6cbd94a0.7902cc",
         "type": "subflow:cce776d7.bee948",
         "z": "94383a31.f15548",
-        "x": 316.75,
-        "y": 335,
+        "x": 150.75,
+        "y": 354,
         "wires": [
             [
                 "75d09a3e.8dded4",
@@ -2458,8 +2456,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 778,
-        "y": 342,
+        "x": 676,
+        "y": 352,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -2480,12 +2478,10 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 587.5,
-        "y": 351,
+        "x": 485.5,
+        "y": 361,
         "wires": [
-            [
-                "44319f8f.b9148"
-            ]
+            []
         ]
     },
     {
@@ -2496,8 +2492,8 @@
         "func": "msg.payload.content = 'They said in private: ' + msg.payload.content;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 673,
-        "y": 836,
+        "x": 664,
+        "y": 1105,
         "wires": [
             [
                 "689d85f9.fbda4c"
@@ -2523,8 +2519,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670.5,
-        "y": 754,
+        "x": 661.5,
+        "y": 1023,
         "wires": [
             [
                 "4467d078.1c006"
@@ -2545,12 +2541,10 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 466,
-        "y": 672,
+        "x": 457,
+        "y": 941,
         "wires": [
-            [
-                "ee87fccb.fcb2f"
-            ]
+            []
         ]
     },
     {
@@ -2567,12 +2561,32 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 479,
-        "y": 762,
+        "x": 470,
+        "y": 1031,
         "wires": [
             [
                 "dbc3cba2.736098"
             ]
+        ]
+    },
+    {
+        "id": "336f24f0.7c500c",
+        "type": "switch",
+        "z": "94383a31.f15548",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 403,
+        "y": 662,
+        "wires": [
+            []
         ]
     }
 ]
