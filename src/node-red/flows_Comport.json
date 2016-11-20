@@ -136,8 +136,8 @@
         "info": "",
         "in": [
             {
-                "x": -66.5,
-                "y": 922,
+                "x": 179,
+                "y": 58,
                 "wires": [
                     {
                         "id": "9c44fd9a.e22d3"
@@ -147,8 +147,8 @@
         ],
         "out": [
             {
-                "x": 245,
-                "y": 1176,
+                "x": 965,
+                "y": 183,
                 "wires": [
                     {
                         "id": "837e26da.2a84a8",
@@ -161,7 +161,7 @@
     {
         "id": "214d5703.b6e2a8",
         "type": "subflow",
-        "name": "Handle static flows",
+        "name": "Handle static private flows",
         "info": "",
         "in": [
             {
@@ -214,8 +214,8 @@
         "info": "",
         "in": [
             {
-                "x": 44.5,
-                "y": 141,
+                "x": 39.5,
+                "y": 378,
                 "wires": [
                     {
                         "id": "8c4caa59.ac2c88"
@@ -225,8 +225,8 @@
         ],
         "out": [
             {
-                "x": 1074,
-                "y": 192,
+                "x": 1069,
+                "y": 429,
                 "wires": [
                     {
                         "id": "8b8eb958.74eb48",
@@ -235,11 +235,11 @@
                 ]
             },
             {
-                "x": 1069,
-                "y": 516,
+                "x": 1066,
+                "y": 779,
                 "wires": [
                     {
-                        "id": "f1a934ca.884618",
+                        "id": "6c2edf3a.8f34f",
                         "port": 1
                     }
                 ]
@@ -332,6 +332,42 @@
                 ]
             }
         ]
+    },
+    {
+        "id": "9aca48e.71e13b8",
+        "type": "subflow",
+        "name": "Set current session in database",
+        "info": "",
+        "in": [
+            {
+                "x": 532,
+                "y": 290,
+                "wires": [
+                    {
+                        "id": "e27104a6.4b90a8"
+                    }
+                ]
+            }
+        ],
+        "out": []
+    },
+    {
+        "id": "dd865e38.929f2",
+        "type": "subflow",
+        "name": "Create new session in database",
+        "info": "",
+        "in": [
+            {
+                "x": 28,
+                "y": 160,
+                "wires": [
+                    {
+                        "id": "81ec731f.99"
+                    }
+                ]
+            }
+        ],
+        "out": []
     },
     {
         "id": "d1b9de09.ece51",
@@ -846,8 +882,8 @@
         "sentences": [
             "start,session"
         ],
-        "x": 194.5,
-        "y": 141,
+        "x": 189.5,
+        "y": 378,
         "wires": [
             [
                 "defc6f37.ecfd7"
@@ -865,13 +901,15 @@
         "sentences": [
             "join,session"
         ],
-        "x": 193,
-        "y": 190,
+        "x": 188,
+        "y": 427,
         "wires": [
             [
                 "85c5e1e0.c5844"
             ],
-            []
+            [
+                "6c2edf3a.8f34f"
+            ]
         ]
     },
     {
@@ -883,8 +921,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 711,
-        "y": 138,
+        "x": 731,
+        "y": 375,
         "wires": [
             [
                 "8b8eb958.74eb48"
@@ -900,8 +938,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 709,
-        "y": 188,
+        "x": 737,
+        "y": 426,
         "wires": [
             [
                 "8b8eb958.74eb48"
@@ -946,8 +984,8 @@
         "answer": false,
         "track": false,
         "parse_mode": "",
-        "x": 730.5,
-        "y": 317,
+        "x": 940.5,
+        "y": 222,
         "wires": [
             [
                 "8b8eb958.74eb48"
@@ -960,8 +998,8 @@
         "z": "8ad0d4e9.a7ddc8",
         "name": "",
         "splt": " ",
-        "x": 79.5,
-        "y": 1013,
+        "x": 817.5,
+        "y": 55,
         "wires": [
             [
                 "eebf8e4d.b8c16"
@@ -987,8 +1025,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 86,
-        "y": 974,
+        "x": 596,
+        "y": 60,
         "wires": [
             [
                 "692cec24.8f25b4"
@@ -1014,8 +1052,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 123.5,
-        "y": 922,
+        "x": 365.5,
+        "y": 51,
         "wires": [
             [
                 "5bc864ec.d0bfcc"
@@ -1041,8 +1079,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 85,
-        "y": 1176,
+        "x": 792,
+        "y": 187,
         "wires": [
             []
         ]
@@ -1063,8 +1101,8 @@
         ],
         "checkall": "false",
         "outputs": 1,
-        "x": 65.5,
-        "y": 1048,
+        "x": 367.5,
+        "y": 199,
         "wires": [
             [
                 "2c198b1d.9355a4"
@@ -1090,8 +1128,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 61.5,
-        "y": 1084,
+        "x": 566.5,
+        "y": 192,
         "wires": [
             [
                 "837e26da.2a84a8"
@@ -1102,12 +1140,14 @@
         "id": "defc6f37.ecfd7",
         "type": "subflow:8ad0d4e9.a7ddc8",
         "z": "31e670eb.7af0b",
-        "x": 460.5,
-        "y": 144,
+        "x": 455.5,
+        "y": 381,
         "wires": [
             [
                 "f75ac520.cc6348",
-                "6db38031.b19e9"
+                "6db38031.b19e9",
+                "fbe6c3d9.a817d",
+                "8c1b4a5c.cb7ca8"
             ]
         ]
     },
@@ -1115,12 +1155,13 @@
         "id": "85c5e1e0.c5844",
         "type": "subflow:8ad0d4e9.a7ddc8",
         "z": "31e670eb.7af0b",
-        "x": 441,
-        "y": 189,
+        "x": 436,
+        "y": 426,
         "wires": [
             [
                 "e1d853b0.1099e",
-                "6db38031.b19e9"
+                "6db38031.b19e9",
+                "fbe6c3d9.a817d"
             ]
         ]
     },
@@ -1138,8 +1179,8 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 688,
-        "y": 262,
+        "x": 760,
+        "y": 231,
         "wires": [
             [
                 "c4a4faff.4bcd18"
@@ -1193,8 +1234,8 @@
         ],
         "checkall": "true",
         "outputs": 1,
-        "x": 930,
-        "y": 191,
+        "x": 925,
+        "y": 428,
         "wires": [
             []
         ]
@@ -1252,6 +1293,294 @@
         "wires": [
             [
                 "baaa9756.5dc538"
+            ]
+        ]
+    },
+    {
+        "id": "1e96fb73.5b7e15",
+        "type": "mongodb out",
+        "z": "dd865e38.929f2",
+        "mongodb": "170ded6c.6bad73",
+        "name": "",
+        "collection": "sessions",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 1006.5,
+        "y": 38,
+        "wires": []
+    },
+    {
+        "id": "7cf9343a.6851ec",
+        "type": "change",
+        "z": "dd865e38.929f2",
+        "name": "Only chatId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "chatId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420.5,
+        "y": 42,
+        "wires": [
+            [
+                "91b7dfcd.a838a"
+            ]
+        ]
+    },
+    {
+        "id": "1f341bb9.7277f4",
+        "type": "mongodb out",
+        "z": "9aca48e.71e13b8",
+        "mongodb": "170ded6c.6bad73",
+        "name": "",
+        "collection": "current-session",
+        "payonly": true,
+        "upsert": true,
+        "multi": false,
+        "operation": "store",
+        "x": 933,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "91b7dfcd.a838a",
+        "type": "change",
+        "z": "dd865e38.929f2",
+        "name": "Use sessionId as _id",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_id",
+                "pt": "msg",
+                "to": "sessionId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 683,
+        "y": 42,
+        "wires": [
+            [
+                "1e96fb73.5b7e15"
+            ]
+        ]
+    },
+    {
+        "id": "b3e42f88.5dee7",
+        "type": "change",
+        "z": "9aca48e.71e13b8",
+        "name": "Use chatId as _id",
+        "rules": [
+            {
+                "t": "set",
+                "p": "_id",
+                "pt": "msg",
+                "to": "chatId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 745,
+        "y": 116,
+        "wires": [
+            [
+                "1f341bb9.7277f4"
+            ]
+        ]
+    },
+    {
+        "id": "c5b6f8c8.6794f8",
+        "type": "change",
+        "z": "9aca48e.71e13b8",
+        "name": "Only sessionId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "sessionId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 529,
+        "y": 120,
+        "wires": [
+            [
+                "b3e42f88.5dee7"
+            ]
+        ]
+    },
+    {
+        "id": "12419a06.d62616",
+        "type": "change",
+        "z": "9aca48e.71e13b8",
+        "name": "Save chatId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "chatId",
+                "pt": "msg",
+                "to": "payload.chatId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 537,
+        "y": 201,
+        "wires": [
+            [
+                "c5b6f8c8.6794f8"
+            ]
+        ]
+    },
+    {
+        "id": "e27104a6.4b90a8",
+        "type": "switch",
+        "z": "9aca48e.71e13b8",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 662,
+        "y": 290,
+        "wires": [
+            [
+                "12419a06.d62616"
+            ]
+        ]
+    },
+    {
+        "id": "81ec731f.99",
+        "type": "switch",
+        "z": "dd865e38.929f2",
+        "name": "no-op",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "outputs": 1,
+        "x": 158,
+        "y": 160,
+        "wires": [
+            [
+                "e7610167.fd672"
+            ]
+        ]
+    },
+    {
+        "id": "e7610167.fd672",
+        "type": "change",
+        "z": "dd865e38.929f2",
+        "name": "Save chatId",
+        "rules": [
+            {
+                "t": "set",
+                "p": "chatId",
+                "pt": "msg",
+                "to": "payload.chatId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 202,
+        "y": 49,
+        "wires": [
+            [
+                "7cf9343a.6851ec"
+            ]
+        ]
+    },
+    {
+        "id": "6c2edf3a.8f34f",
+        "type": "chatbot-listen",
+        "z": "31e670eb.7af0b",
+        "name": "leave session",
+        "sentences": [
+            "leave,session"
+        ],
+        "x": 198,
+        "y": 477,
+        "wires": [
+            [
+                "fbe6c3d9.a817d",
+                "7ff0d61b.5b92a8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fbe6c3d9.a817d",
+        "type": "subflow:9aca48e.71e13b8",
+        "z": "31e670eb.7af0b",
+        "x": 787,
+        "y": 61,
+        "wires": []
+    },
+    {
+        "id": "8c1b4a5c.cb7ca8",
+        "type": "subflow:dd865e38.929f2",
+        "z": "31e670eb.7af0b",
+        "name": "",
+        "x": 212.25,
+        "y": 30,
+        "wires": []
+    },
+    {
+        "id": "7ff0d61b.5b92a8",
+        "type": "chatbot-message",
+        "z": "31e670eb.7af0b",
+        "name": "Left session",
+        "message": "You left the session",
+        "answer": false,
+        "track": false,
+        "parse_mode": "",
+        "x": 726,
+        "y": 471,
+        "wires": [
+            [
+                "8b8eb958.74eb48"
             ]
         ]
     }
