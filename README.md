@@ -2,6 +2,9 @@
 
 Reduce anger and improve person-to-person conversations with the help of a mediating chatbot. This particular bot blocks messages which have a low [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) from being sent to the other chat participant.
 
+[![Screenshot showing an example conversation where one message gets blocked](https://cloud.githubusercontent.com/assets/1398544/20463786/6f5b2dd0-af3b-11e6-9324-8619f859430e.PNG)](https://cloud.githubusercontent.com/assets/1398544/20463786/6f5b2dd0-af3b-11e6-9324-8619f859430e.PNG)
+
+
 See [conversationaugmentation.com](http://conversationaugmentation.com/) for more information!
 
 
@@ -51,7 +54,7 @@ open http://127.0.0.1:1880/
 
 All bot development was made using the visual editor in [node-red](https://nodered.org/) using nodes from the [node-red-contrib-chatbot](https://github.com/guidone/node-red-contrib-chatbot) plugin/addon. It's all running locally, using the commands above, and it's *really, really, really* easy to improve the bot without programming. Here's an example of "visual code" in the main flow:
 
-[![screen shot 2016-11-20 at 15 24 22](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)
+[![Screenshot showing the main flow in node-red](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)](https://cloud.githubusercontent.com/assets/1398544/20463582/cb095d0a-af36-11e6-8283-90eb482d67cd.PNG)
 
 
 
