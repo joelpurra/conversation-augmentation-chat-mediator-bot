@@ -2,6 +2,9 @@
 
 Reduce anger and improve person-to-person conversations with the help of a mediating chatbot. This particular bot blocks messages which have a low [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) from being sent to the other chat participant.
 
+[![Screenshot showing an example conversation where one message gets blocked](docs/flowchart/Chat mediator bot.png)](docs/flowchart/Chat mediator bot.png)
+
+
 [![Screenshot showing an example conversation where one message gets blocked](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)
 
 

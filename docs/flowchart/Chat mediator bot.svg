@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg viewBox="-147 190 687 225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke-dasharray: 4; stroke: #000000" x="1.8" y="212.562" width="419.06" height="201.263" rx="20" ry="20"/>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-linejoin: round; stroke: #000000" x1="-96.5617" y1="257.684" x2="-64.3535" y2="257.71"/>
+    <polygon style="fill: #000000" points="-56.8535,257.716 -66.8574,262.708 -64.3535,257.71 -66.8496,252.708 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-56.8535,257.716 -66.8574,262.708 -64.3535,257.71 -66.8496,252.708 "/>
+  </g>
+  <g>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="121.589" y="237.684" width="161.7" height="40"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="202.439" y="261.584">
+      <tspan x="202.439" y="261.584">Calculate sentiment</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="202.287,306.447 271.815,356.037 202.287,405.627 132.758,356.037 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="202.287" y="359.937">
+      <tspan x="202.287" y="359.937">Check score</tspan>
+    </text>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="202.439" y1="277.684" x2="202.338" y2="296.711"/>
+    <polygon style="fill: #000000" points="202.298,304.211 197.351,294.185 202.338,296.711 207.351,294.237 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="202.298,304.211 197.351,294.185 202.338,296.711 207.351,294.237 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="136.484" y="202.251">
+    <tspan x="136.484" y="202.251">Chat mediator bot</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="202.287" y="356.037">
+    <tspan x="202.287" y="356.037"></tspan>
+  </text>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="57.34" y1="257.762" x2="111.852" y2="257.696"/>
+    <polygon style="fill: #000000" points="119.352,257.687 109.358,262.699 111.852,257.696 109.346,252.699 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="119.352,257.687 109.358,262.699 111.852,257.696 109.346,252.699 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="271.815" y1="356.037" x2="335.529" y2="356.037"/>
+    <polygon style="fill: #000000" points="343.029,356.037 333.029,361.037 335.529,356.037 333.029,351.037 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="343.029,356.037 333.029,361.037 335.529,356.037 333.029,351.037 "/>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="108.48" y="348.645">
+    <tspan x="108.48" y="348.645">Bad</tspan>
+  </text>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="271.887" y="348.645">
+    <tspan x="271.887" y="348.645">Good</tspan>
+  </text>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-54.515,356.037 -117.197,356.037 -117.197,305.65 "/>
+    <polygon style="fill: #000000" points="-117.197,298.15 -112.197,308.15 -117.197,305.65 -122.197,308.15 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-117.197,298.15 -112.197,308.15 -117.197,305.65 -122.197,308.15 "/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="132.758" y1="356.037" x2="69.0446" y2="356.037"/>
+    <polygon style="fill: #000000" points="61.5446,356.037 71.5446,351.037 69.0446,356.037 71.5446,361.037 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="61.5446,356.037 71.5446,351.037 69.0446,356.037 71.5446,361.037 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="480.288,368.235 510.988,368.235 510.988,300.229 "/>
+    <polygon style="fill: #000000" points="510.988,292.729 515.988,302.729 510.988,300.229 505.988,302.729 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="510.988,292.729 515.988,302.729 510.988,300.229 505.988,302.729 "/>
+  </g>
+  <g>
+    <path style="fill: #ffffff" d="M -53.61 253.762 L 57.34,237.762 L 57.34,277.762 L -53.61,277.762 L -53.61,253.762z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M -53.61 253.762 L 57.34,237.762 L 57.34,277.762 L -53.61,277.762 L -53.61,253.762"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="1.86504" y="269.762">
+      <tspan x="1.86504" y="269.762">Send message</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="352.544,336.037 487.568,336.037 473.009,376.037 337.985,376.037 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="352.544,336.037 487.568,336.037 473.009,376.037 337.985,376.037 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="412.777" y="359.937">
+      <tspan x="412.777" y="359.937">Deliver message</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="-47.2356,336.037 66.5879,336.037 52.0291,376.037 -61.7944,376.037 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-47.2356,336.037 66.5879,336.037 52.0291,376.037 -61.7944,376.037 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="2.39675" y="359.937">
+      <tspan x="2.39675" y="359.937">Return notice</tspan>
+    </text>
+  </g>
+  <g>
+    <image x="-136.562" y="239.884" width="40" height="35.6" xlink:href="noun_961.svg"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="-146.223" y="291.17">
+      <tspan x="-146.223" y="291.17">Human A</tspan>
+    </text>
+  </g>
+  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="519.12" y="278.973">
+    <tspan x="519.12" y="278.973"></tspan>
+  </text>
+  <g>
+    <image x="490.697" y="234.231" width="40" height="35.6" xlink:href="noun_961.svg"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="481.036" y="285.517">
+      <tspan x="481.036" y="285.517">Human B</tspan>
+    </text>
+  </g>
+</svg>
