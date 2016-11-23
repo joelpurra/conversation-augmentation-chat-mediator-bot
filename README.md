@@ -1,29 +1,14 @@
 # [Conversation Augmentation: Chat Mediator Bot](https://github.com/joelpurra/conversation-augmentation-chat-mediator-bot)
 
-Reduce anger and improve person-to-person conversations with the help of a mediating chatbot. This particular bot blocks messages which have a low [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) from being sent to the other chat participant.
-
-[![Screenshot showing an example conversation where one message gets blocked](docs/flowchart/Chat mediator bot.png)](docs/flowchart/Chat mediator bot.png)
-
-
-[![Screenshot showing an example conversation where one message gets blocked](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)
-
+Reduce anger and improve two-way human-to-human conversations with the help of a mediating/moderating chatbot. This particular bot blocks angry messages which have a bad [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) from being delivered to the other chat participant.
 
 See [conversationaugmentation.com](http://conversationaugmentation.com/) for more information!
 
 
 
-## Have a civilized conversation
-
-- Open a private window with your bot
-- You can `start session demo`
-- Let someone else `join session demo`
-- Chat with reduced aggressiveness!
-  - Most messages are let through.
-  - Messages with "aggressive" words, such as curse words are blocked.
-
-
-
 ## Augmentation by encouraging more positive messages
+
+[![Screenshot showing an example conversation where one message gets blocked](docs/flowchart/Chat mediator bot.png)](docs/flowchart/Chat mediator bot.png)
 
 - In a person-to-person conversation, each message is inspected by the mediating chatbot before being passed on.
 - Each message is given a [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) using a [word-by-word analysis](https://github.com/thisandagain/sentiment).
@@ -32,9 +17,15 @@ See [conversationaugmentation.com](http://conversationaugmentation.com/) for mor
 - The chat user is instead encouraged to write a nicer message, which would then be delivered.
 - This way the most blatant aggressiveness can be avoided, and hopefully slowing down or stopping a downward agressiveness spiral.
 
+Here is an example conversation between me (Joel Purra) a friend ("they"), in a chat session through a mediator bot called @botanist. The other human's responses are prefixed with "they said." One of my messages gets blocked with a notice from @botanist.
+
+[![Screenshot showing an example conversation where one message gets blocked](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)
+
 
 
 ## Installation
+
+In order to run the chatbot you need [Node.js](https://nodejs.org/en/), a new [Slack bot user token](https://api.slack.com/bot-users), and a [MongoDB](https://www.mongodb.com/) server.
 
 ```bash
 # Install dependencies.
@@ -50,6 +41,17 @@ open http://127.0.0.1:1880/
 
 # Chat with your bot through slack!
 ```
+
+
+
+## Have a civilized conversation
+
+- Open a private window with your bot
+- You can `start session demo`
+- Let someone else `join session demo`
+- Chat with reduced aggressiveness!
+  - Most messages are let through.
+  - Messages with "aggressive" words, such as curse words are blocked.
 
 
 
