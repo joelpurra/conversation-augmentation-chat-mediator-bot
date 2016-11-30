@@ -65,7 +65,7 @@ All bot development was made using the visual editor in [node-red](https://noder
 
 ## Story
 
-Created at the [Bothack.berlin](http://bothack.berlin/) hackathon in at the LTGG offices 2016-11-18--20. Thanks to Karolin Rühlmann, Liron Tocker, all others who helped out, as well as the hackathon organizers.
+Created at the [Bothack.berlin](http://bothack.berlin/) hackathon in at the [TLGG](https://www.tlgg.de/) offices 2016-11-18--20. Thanks to Karolin Rühlmann, Liron Tocker, all others who helped out, as well as the hackathon organizers.
 
 ---
 
