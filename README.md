@@ -8,7 +8,7 @@ See [conversationaugmentation.com](http://conversationaugmentation.com/) for mor
 
 ## Augmentation by encouraging more positive messages
 
-[![Screenshot showing an example conversation where one message gets blocked](docs/flowchart/Chat mediator bot.png)](docs/flowchart/Chat mediator bot.png)
+[![Screenshot showing an example conversation where one message gets blocked](docs/flowchart/Chat%20mediator%20bot.png)](docs/flowchart/Chat%20mediator%20bot.png)
 
 - In a person-to-person conversation, each message is inspected by the mediating chatbot before being passed on.
 - Each message is given a [sentiment score](https://en.wikipedia.org/wiki/Sentiment_analysis) using a [word-by-word analysis](https://github.com/thisandagain/sentiment).
@@ -19,7 +19,7 @@ See [conversationaugmentation.com](http://conversationaugmentation.com/) for mor
 
 Here is an example conversation between me (Joel Purra) a friend ("they"), in a chat session through a mediator bot called @botanist. The other human's responses are prefixed with "they said." One of my messages gets blocked with a notice from @botanist.
 
-[![Screenshot showing an example conversation where one message gets blocked](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)](docs/screenshots/Screen Shot 2016-11-20 at 16.06.03.png)
+[![Screenshot showing an example conversation where one message gets blocked](docs/screenshots/Screen%20Shot%202016-11-20%20at%2016.06.03.png)](docs/screenshots/Screen%20Shot%202016-11-20%20at%2016.06.03.png)
 
 
 
@@ -59,7 +59,7 @@ open http://127.0.0.1:1880/
 
 All bot development was made using the visual editor in [node-red](https://nodered.org/) using nodes from the [node-red-contrib-chatbot](https://github.com/guidone/node-red-contrib-chatbot) plugin/addon. It's all running locally, using the commands above, and it's *really, really, really* easy to improve the bot without programming. Here's an example of "visual code" in the main flow:
 
-[![Screenshot showing the main flow in node-red](docs/screenshots/Screen Shot 2016-11-20 at 15.24.22.png)](docs/screenshots/Screen Shot 2016-11-20 at 15.24.22.png)
+[![Screenshot showing the main flow in node-red](docs/screenshots/Screen%20Shot%202016-11-20%20at%2015.24.22.png)](docs/screenshots/Screen%20Shot%202016-11-20%20at%2015.24.22.png)
 
 
 
